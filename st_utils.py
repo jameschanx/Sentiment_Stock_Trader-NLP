@@ -38,7 +38,7 @@ def get_news(keywords, start_date, end_date, news_source):
     apikey = '23e7e5c41b6443f1bb556ec312275aff' #unique API key per registered user
 
     #create dataframe so we can append data to it later
-    df = pd.DataFrame(columns=['Published', 'Title', 'Body','keyword'])
+    df = pd.DataFrame(columns=['Published', 'Title', 'Body','Keyword', 'Source'])
     articles_per_page = 100 # 100 is max number of page displayed per page per API
     for keyword in keywords:
         #determine the total number of articles for the given keyword and date range
