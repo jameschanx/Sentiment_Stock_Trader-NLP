@@ -9,7 +9,7 @@ Description:
 import requests
 import pandas as pd
 
-def news_request(company, start_date, end_date, news_source):
+def news_request(companies, start_date, end_date, news_source):
     '''
     arguments:
         company (list(strings))
@@ -42,7 +42,6 @@ def news_request(company, start_date, end_date, news_source):
         
         #loop through the pages to get all the articles
         for page in range(1, int(num_articles/articles_per_page) + 2):
-            print(company, num_articles, page)
             url = 'https://newsapi.org/v2/everything?q={}&from={}&to={}&domains={}&pageSize={}&page={}&apiKey={}'\
                     .format(company, start_date, end_date, news_source, articles_per_page, page, apikey)
             response = requests.get(url)
@@ -55,10 +54,10 @@ def news_request(company, start_date, end_date, news_source):
     return df
 
 if __name__=="__main__":
-    companies = ['twitter','netflix','tesla'] #these three stocks move largely base on news
+    pass
+    companies = ['tesla'] #these three stocks move largely base on news
     news_source = 'wsj.com, bloomberg.com, cnbc.com'
     start_date = '2016-01-01'
     end_date = '2017-12-31'
     df = news_request(companies, start_date, end_date, news_source)
-    print(df)
     df.to_csv('news_dataset.csv')
