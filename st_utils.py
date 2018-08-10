@@ -42,18 +42,18 @@ def get_news(keywords, start_date, end_date, news_source):
     articles_per_page = 100 # 100 is max number of page displayed per page per API
     for keyword in keywords:
         #determine the total number of articles for the given keyword and date range
-        url = 'https://newsapi.org/v2/everything?language=en&country=us&q={}&from={}&to={}&domains={}&pageSize=0&apiKey={}'\
+        url = 'https://newsapi.org/v2/everything?language=en&q={}&from={}&to={}&domains={}&pageSize=0&apiKey={}'\
                 .format(keyword, start_date, end_date, news_source, apikey)
         response = requests.get(url)
         news = response.json() 
-        num_articles = news['totalResults']
         print(news)
+        num_articles = news['totalResults']
         
         #loop through the pages to get all the articles
         print("total number of articles ", num_articles)
         for page in range(1, int(num_articles/articles_per_page) + 2):
             print('downloading page: ', page)
-            url = 'https://newsapi.org/v2/everything?language=en&country=us&q={}&from={}&to={}&domains={}&pageSize={}&page={}&apiKey={}'\
+            url = 'https://newsapi.org/v2/everything?language=en&q={}&from={}&to={}&domains={}&pageSize={}&page={}&apiKey={}'\
                     .format(keyword, start_date, end_date, news_source, articles_per_page, page, apikey)
             response = requests.get(url)
             news = response.json()
@@ -63,4 +63,5 @@ def get_news(keywords, start_date, end_date, news_source):
                 body = article['description']
                 source = article['source']['name']
                 df = df.append({'Published': published, 'Title' : title, 'Body': body, 'Keyword': keyword, 'Source': source}, ignore_index=True)
+    print("download complete")
     return df
