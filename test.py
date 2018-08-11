@@ -6,15 +6,21 @@ from nltk.stem import WordNetLemmatizer, PorterStemmer
 from dateutil import parser
 from datetime import timedelta
 import string
+import numpy as np
 #dt = parser.parse("2018-03-28T03:17:05")
 #print(dt)
 #print(dt - timedelta(hours=20))
 #print(dt)
-print(string.punctuation)
-print('QQ@#$2,4,5@#%'.strip(string.punctuation))
-      
-bob = 'asdfTesla'
-print('tesla' in bob.lower())      
+b = [1,3]
+c = [2,4]
+a = np.zeros((5,3))
+print(a[:,[1,2]])
+
+#print(string.punctuation)
+#print('QQ@#$2,4,5@#%'.strip(string.punctuation))
+#      
+#bob = 'asdfTesla'
+#print('tesla' in bob.lower())      
 #translator = str.maketrans('', '', string.punctuation)
 #s = 'string with "pun"c"tuation" inside of it! Does this work? I hope so.'
 #print(s.translate(translator))
