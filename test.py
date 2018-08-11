@@ -13,15 +13,17 @@ import string
 print(string.punctuation)
 print('QQ@#$2,4,5@#%'.strip(string.punctuation))
       
-translator = str.maketrans('', '', string.punctuation)
-s = 'string with "pun"c"tuation" inside of it! Does this work? I hope so.'
-print(s.translate(translator))
-print(s)
-
-print('2,345'.isdigit())
-print('2,434'.isnumeric())
-
-print(ord('z'))
+bob = 'asdfTesla'
+print('tesla' in bob.lower())      
+#translator = str.maketrans('', '', string.punctuation)
+#s = 'string with "pun"c"tuation" inside of it! Does this work? I hope so.'
+#print(s.translate(translator))
+#print(s)
+#
+#print('2,345'.isdigit())
+#print('2,434'.isnumeric())
+#
+#print(ord('z'))
 #lmtzr = WordNetLemmatizer()
 #stmr = PorterStemmer()
 #a = lmtzr.lemmatize("here's")
