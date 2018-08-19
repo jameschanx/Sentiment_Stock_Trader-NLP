@@ -252,6 +252,7 @@ class BackTester:
                 ax1.axvline(line, color='indianred')
         ax1.legend()
         ax1.get_yaxis().set_ticks([])
+        plt.xticks(rotation=30)
         plt.show()
         if output:
             plt.savefig(plot_title + '.png')
